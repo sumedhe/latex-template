@@ -1,0 +1,66 @@
+\documentclass[12pt, a4paper]{article}
+
+% Page setup
+\usepackage[top=1in,bottom=1in,left=1in, right=1in, marginparwidth=1.75cm]{geometry}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+%% Useful packages
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{tabu}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{acro}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%% Load definitions
+\input{acronyms}
+\input{definitions}
+
+%% Configurations
+\graphicspath{ {Images/} }
+
+%% Info
+\title{\researchtitile{}}
+\author{\authorname \\ \authorindexno}
+\date{}
+
+%% Content
+\begin{document}
+
+    %% Cover page
+    \input{content/cover}
+
+    %% Start roman page numbering
+    \pagenumbering{roman}
+
+    %% Table of content
+    \tableofcontents
+    \newpage
+
+    %% Start arabic page numbering
+    \pagenumbering{arabic}
+
+    %% Header and footer
+    \pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[RE,LO]{\headertopleft}
+    \fancyhead[LE,RO]{\headertopright}
+    \fancyfoot[C,CO]{\thepage}
+
+    %% Introduction
+    \input{content/01_introduction}
+    \newpage
+
+    %% References
+    \addcontentsline{toc}{section}{List of References}
+    \renewcommand\refname{List of References}
+    \bibliographystyle{unsrt}
+    \bibliography{references} 
+\end{document}
+
